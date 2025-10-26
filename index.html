@@ -17,7 +17,7 @@
         .bg-gradient {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 25%, #6FB3D2 50%, #89CFF0 75%, #A7D8DE 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             opacity: 0.1;
@@ -55,7 +55,7 @@
             position: relative;
         }
 
-        nav a:hover { color: #667eea; }
+        nav a:hover { color: #4A90A4; }
 
         nav a::after {
             content: '';
@@ -64,7 +64,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #2C5F7C, #4A90A4);
             transition: width 0.3s;
         }
 
@@ -105,11 +105,11 @@
         .profile-glow {
             position: absolute;
             inset: -20px;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-            border-radius: 50%;
+            background: linear-gradient(135deg, #2C5F7C, #4A90A4, #6FB3D2);
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
             filter: blur(40px);
             opacity: 0.6;
-            animation: pulse 4s ease-in-out infinite;
+            animation: pulse 4s ease-in-out infinite, morphBlob 8s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -117,21 +117,29 @@
             50% { opacity: 0.8; transform: scale(1.05); }
         }
 
+        @keyframes morphBlob {
+            0%, 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+            25% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+            50% { border-radius: 41% 59% 41% 59% / 65% 60% 40% 35%; }
+            75% { border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%; }
+        }
+
         .profile-img {
             position: relative;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
             object-fit: cover;
             border: 4px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: morphBlob 8s ease-in-out infinite;
         }
 
         .hero h1 {
             font-size: clamp(3rem, 7vw, 5rem);
             font-weight: 800;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 50%, #6FB3D2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -181,8 +189,8 @@
         }
 
         .social-btn:hover {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.5);
+            background: rgba(74, 144, 164, 0.2);
+            border-color: rgba(74, 144, 164, 0.5);
             transform: translateY(-2px);
         }
 
@@ -195,19 +203,19 @@
 
         .primary-btn {
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 100%);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3);
             display: inline-block;
         }
 
         .primary-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 15px 40px rgba(44, 95, 124, 0.5);
         }
 
         .secondary-btn {
@@ -223,8 +231,8 @@
         }
 
         .secondary-btn:hover {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
+            border-color: #4A90A4;
+            background: rgba(74, 144, 164, 0.1);
             transform: translateY(-3px);
         }
 
@@ -235,7 +243,7 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            background: linear-gradient(135deg, #2C5F7C 0%, #6FB3D2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -261,7 +269,7 @@
             transform: translateX(-50%);
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, transparent, #667eea, transparent);
+            background: linear-gradient(180deg, transparent, #4A90A4, transparent);
         }
 
         .experience-item {
@@ -285,8 +293,8 @@
 
         .experience-content:hover {
             transform: translateY(-5px);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+            border-color: rgba(74, 144, 164, 0.5);
+            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.2);
         }
 
         .experience-dot {
@@ -295,7 +303,7 @@
             transform: translateX(-50%);
             width: 20px;
             height: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #2C5F7C, #4A90A4);
             border-radius: 50%;
             border: 4px solid #0a0a0a;
             z-index: 10;
@@ -325,11 +333,11 @@
 
         .skill-tag {
             padding: 0.5rem 1rem;
-            background: rgba(102, 126, 234, 0.15);
+            background: rgba(74, 144, 164, 0.15);
             border-radius: 20px;
             font-size: 0.9rem;
             color: #d0d0d0;
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(74, 144, 164, 0.2);
         }
 
         .apps-grid {
@@ -358,15 +366,15 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background: linear-gradient(90deg, #2C5F7C, #4A90A4, #6FB3D2);
             transform: scaleX(0);
             transition: transform 0.3s;
         }
 
         .app-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            border-color: rgba(74, 144, 164, 0.5);
+            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.3);
         }
 
         .app-card:hover::before { transform: scaleX(1); }
@@ -375,14 +383,14 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #667eea;
+            color: #4A90A4;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
             margin-top: 1rem;
         }
 
-        .app-link:hover { color: #764ba2; }
+        .app-link:hover { color: #6FB3D2; }
 
         .tech-stack {
             display: flex;
@@ -395,11 +403,11 @@
 
         .tech-tag {
             padding: 0.4rem 0.8rem;
-            background: rgba(102, 126, 234, 0.15);
+            background: rgba(74, 144, 164, 0.15);
             border-radius: 15px;
             font-size: 0.75rem;
             color: #a0a0a0;
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(74, 144, 164, 0.2);
         }
 
         footer {
@@ -424,7 +432,7 @@
             transition: color 0.3s;
         }
 
-        .footer-links a:hover { color: #667eea; }
+        .footer-links a:hover { color: #4A90A4; }
 
         .fade-in {
             opacity: 0;
@@ -487,6 +495,8 @@
                 <div class="social-links">
                     <a href="mailto:shyammohan.ckd@gmail.com" class="social-btn">📧 Email</a>
                     <a href="https://linkedin.com/in/-shyam" class="social-btn" target="_blank">💼 LinkedIn</a>
+                    <a href="https://wa.me/918714413377" class="social-btn" target="_blank">💬 WhatsApp</a>
+                    <a href="https://arattai.com/shyammohan" class="social-btn" target="_blank">🗣️ Arattai</a>
                     <a href="tel:+918714413377" class="social-btn">📱 Call</a>
                 </div>
 
@@ -499,7 +509,7 @@
             <div class="hero-image">
                 <div class="profile-container">
                     <div class="profile-glow"></div>
-                    <img src="assets/img/pic.jpeg" alt="Shyam Mohan" class="profile-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%23667eea%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%22120%22 font-weight=%22bold%22%3ESM%3C/text%3E%3C/svg%3E'">
+                    <img src="assets/img/pic.jpeg" alt="Shyam Mohan" class="profile-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%232C5F7C%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%22120%22 font-weight=%22bold%22%3ESM%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
         </div>
@@ -513,7 +523,7 @@
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
-                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Nov 2024 – Present</p>
+                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Nov 2024 – Present</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Android Developer</h3>
                     <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies, Calicut</p>
                     <p style="color: #d0d0d0; line-height: 1.6;">Designing and developing Android applications with REST API integration and database backends for client projects.</p>
@@ -523,7 +533,7 @@
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
-                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Nov 2022 – Nov 2024</p>
+                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Nov 2022 – Nov 2024</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Assistant IT Head</h3>
                     <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Grand Hyper Market, Muscat, Oman</p>
                     <p style="color: #d0d0d0; line-height: 1.6;">Directed IT operations across multiple branches. Led API & software development (.NET, Kotlin, Java, Flutter), ERP, POS, server, and network management.</p>
@@ -533,7 +543,7 @@
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
-                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Apr 2022 – Nov 2022</p>
+                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Apr 2022 – Nov 2022</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Senior Developer</h3>
                     <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Grand Hyper Market, Dubai, UAE</p>
                     <p style="color: #d0d0d0; line-height: 1.6;">Delivered software and API development solutions using .NET, Kotlin, Java, Flutter, and JavaScript, including system integrations.</p>
@@ -543,7 +553,7 @@
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
-                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Feb 2017 – Apr 2022</p>
+                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Feb 2017 – Apr 2022</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Mobile App Developer</h3>
                     <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies, Calicut</p>
                     <p style="color: #d0d0d0; line-height: 1.6;">Built and published mobile applications with API and database integration, ensuring scalable and reliable solutions.</p>
@@ -558,7 +568,7 @@
         
         <div class="skills-grid">
             <div class="skill-category fade-in">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #667eea;">🚀 Mobile Development</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">🚀 Mobile Development</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Kotlin</span>
                     <span class="skill-tag">Java</span>
@@ -574,7 +584,7 @@
             </div>
 
             <div class="skill-category fade-in">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #667eea;">📡 Connectivity</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">📡 Connectivity</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Bluetooth SPP</span>
                     <span class="skill-tag">Bluetooth HID</span>
@@ -586,7 +596,7 @@
             </div>
 
             <div class="skill-category fade-in">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #667eea;">💾 Databases</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">💾 Databases</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SQLite</span>
                     <span class="skill-tag">Room DB</span>
@@ -598,7 +608,7 @@
             </div>
 
             <div class="skill-category fade-in">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #667eea;">🌐 API & Tools</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">🌐 API & Tools</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Retrofit</span>
                     <span class="skill-tag">REST APIs</span>
@@ -615,29 +625,78 @@
         <h2 class="section-title fade-in">Featured Projects</h2>
         <p class="section-subtitle fade-in">Real-world applications solving complex problems</p>
         
-        <div class="apps-grid">
-            <div class="app-card fade-in">
-                <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📱</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2025</span>
-                </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">MOSBILL</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Multi-user billing system with GST invoicing, reports, and REST APIs. Bluetooth SPP thermal printing support.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase" target="_blank" class="app-link">View on Play Store →</a>
-                <div class="tech-stack">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">Bluetooth SPP</span>
-                    <span class="tech-tag">REST API</span>
+        <!-- MOSBILL Showcase -->
+        <div style="max-width: 1200px; margin: 0 auto 5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 3rem; backdrop-filter: blur(10px);" class="fade-in">
+            <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3);">📱</div>
+                <div style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                        <h3 style="font-size: 2.5rem; margin: 0;">MOSBILL</h3>
+                        <span style="padding: 0.5rem 1rem; background: rgba(74, 144, 164, 0.2); border-radius: 20px; font-size: 0.9rem; color: #4A90A4; border: 1px solid rgba(74, 144, 164, 0.3);">Flagship Project</span>
+                    </div>
+                    <p style="color: #a0a0a0; font-size: 1.1rem;">Invoice Billing & Business Management Application</p>
                 </div>
             </div>
 
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                <div>
+                    <h4 style="color: #4A90A4; font-size: 1.3rem; margin-bottom: 1rem;">📋 Overview</h4>
+                    <p style="color: #d0d0d0; line-height: 1.8; margin-bottom: 1.5rem;">
+                        MOSBILL is a comprehensive business management application designed for businessmen to handle GST billing, invoicing, purchase orders, inventory management, and business analytics. The app digitizes the entire sales process with an advanced, user-friendly interface developed after extensive market research and client consultations.
+                    </p>
+                    <p style="color: #d0d0d0; line-height: 1.8;">
+                        Features multi-user support, real-time synchronization, comprehensive reports, and Bluetooth thermal printing capabilities using Serial Port Profile (SPP) for instant invoice printing.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="color: #4A90A4; font-size: 1.3rem; margin-bottom: 1rem;">🎯 Key Features</h4>
+                    <ul style="color: #d0d0d0; line-height: 2; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">✓ GST Compliant Invoicing</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Multi-user Business Management</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Real-time Inventory Tracking</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Purchase Order Management</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Business Analytics & Reports</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Bluetooth Thermal Printing (SPP)</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Cloud Sync with Firebase</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Customizable for Different Business Needs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: #4A90A4; font-size: 1.3rem; margin-bottom: 1rem;">💻 Technologies Used</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Java</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Kotlin</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">XML</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">JSON</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Volley</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Room DB</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Firebase</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Firestore</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Bluetooth SPP</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">REST API</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">MVVM Architecture</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase" target="_blank" style="padding: 1rem 2rem; background: linear-gradient(135deg, #2C5F7C, #4A90A4); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;">
+                    <span style="font-size: 1.2rem;">▶</span> View on Play Store
+                </a>
+            </div>
+        </div>
+
+        <h3 style="font-size: 2rem; text-align: center; color: #d0d0d0; margin-bottom: 3rem;" class="fade-in">Other Projects</h3>
+        
+        <div class="apps-grid">
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🔥</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2025</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🔥</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2025</span>
                 </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">FireFly ERP</h3>
+                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">TGZ ERP</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Order and customer management app with Bluetooth SPP invoice printing.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Kotlin</span>
@@ -648,8 +707,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🎵</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2024</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🎵</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2024</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">GRAND MEDIA PLAYER</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Audio player using Bluetooth A2DP & AVRCP for demo switching across multiple devices.</p>
@@ -662,8 +721,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🏷️</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2023</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🏷️</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2023</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">LABEL PRINTER</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Print product labels by connecting multiple printers via local WiFi network.</p>
@@ -676,8 +735,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💰</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2023</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💰</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2023</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">PRICE CHECKER</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Barcode scanner with ASP.NET API integration for real-time price lookup.</p>
@@ -690,8 +749,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📦</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2022</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📦</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2022</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">LIVE STOCK TAKING</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Real-time stock inventory monitoring with ASP.NET backend integration.</p>
@@ -704,8 +763,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖨️</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2021</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖨️</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2021</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Bluetooth Thermal Printing</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Converts ERP invoices to PDF and prints via Bluetooth SPP thermal printer.</p>
@@ -718,8 +777,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖱️</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2017</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖱️</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2017</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">ANDROID REMOTE MOUSE</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Control PC mouse remotely via Bluetooth HID with Android screen as trackpad.</p>
@@ -732,8 +791,8 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💡</div>
-                    <span style="color: #667eea; font-weight: 600; font-size: 0.9rem;">2016</span>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💡</div>
+                    <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2016</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">SMART SWITCH</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">BLE-based smart bulb controller using GATT for ON/OFF, brightness, and RGB color control.</p>
@@ -754,7 +813,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🌐</div>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🌐</div>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Apollo Systems & Technologies</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Corporate website for integrated security, safety solutions, solar power, IT networking, and audio-visual systems provider.</p>
@@ -767,7 +826,7 @@
 
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
-                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🚀</div>
+                    <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🚀</div>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Team Interval</h3>
                 <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Professional website for Team Interval with clean UI and optimized performance.</p>
@@ -790,8 +849,9 @@
             
             <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem;" class="fade-in">
                 <a href="mailto:shyammohan.ckd@gmail.com" class="primary-btn">📧 Email Me</a>
+                <a href="https://wa.me/918714413377" target="_blank" class="secondary-btn">💬 WhatsApp</a>
                 <a href="https://linkedin.com/in/-shyam" target="_blank" class="secondary-btn">💼 LinkedIn</a>
-                <a href="tel:+918714413377" class="secondary-btn">📱 +91 871 441 3377</a>
+                <a href="https://arattai.com/shyammohan" target="_blank" class="secondary-btn">🗣️ Arattai</a>
             </div>
 
             <p style="color: #808080; font-size: 0.95rem;" class="fade-in">📍 Malappuram, Kerala, India</p>
@@ -803,6 +863,8 @@
             <div class="footer-links">
                 <a href="mailto:shyammohan.ckd@gmail.com">Email</a>
                 <a href="https://linkedin.com/in/-shyam" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/918714413377" target="_blank">WhatsApp</a>
+                <a href="https://arattai.com/shyammohan" target="_blank">Arattai</a>
                 <a href="tel:+918714413377">Phone</a>
                 <a href="https://docs.google.com/document/d/18xnqMv7kFvRA6wkP0MkpofKsaH8bpmsnRwkmYWauCxo/export?format=pdf" target="_blank">Resume</a>
             </div>

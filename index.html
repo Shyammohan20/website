@@ -6,448 +6,82 @@
     <title>Shyam - Android Developer</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+        .bg-gradient { position: fixed; inset: 0; background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 25%, #6FB3D2 50%, #89CFF0 75%, #A7D8DE 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite; opacity: 0.1; z-index: -1; }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        .bg-gradient {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 25%, #6FB3D2 50%, #89CFF0 75%, #A7D8DE 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        nav ul { display: flex; justify-content: center; gap: 3rem; list-style: none; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; transition: all 0.3s; position: relative; }
         nav a:hover { color: #4A90A4; }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #2C5F7C, #4A90A4);
-            transition: width 0.3s;
-        }
-
+        nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #2C5F7C, #4A90A4); transition: width 0.3s; }
         nav a:hover::after { width: 100%; }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6rem 5% 2rem;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            max-width: 1400px;
-            width: 100%;
-        }
-
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 6rem 5% 2rem; }
+        .hero-content { display: flex; align-items: center; gap: 4rem; max-width: 1400px; width: 100%; }
         .hero-text { flex: 1; min-width: 300px; }
-
         .hero-image { flex: 0 0 350px; }
+        .profile-container { position: relative; width: 350px; height: 350px; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .profile-glow { position: absolute; inset: -20px; background: linear-gradient(135deg, #2C5F7C, #4A90A4, #6FB3D2); border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; filter: blur(40px); opacity: 0.6; animation: pulse 4s ease-in-out infinite, morphBlob 8s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }
+        @keyframes morphBlob { 0%, 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 25% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; } 50% { border-radius: 41% 59% 41% 59% / 65% 60% 40% 35%; } 75% { border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%; } }
+        .profile-img { position: relative; width: 100%; height: 100%; border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; object-fit: cover; border: 4px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); animation: morphBlob 8s ease-in-out infinite; }
 
-        .profile-container {
-            position: relative;
-            width: 350px;
-            height: 350px;
-            animation: float 6s ease-in-out infinite;
-        }
+        h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 50%, #6FB3D2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeInUp 1s ease; }
+        .subtitle { font-size: clamp(1.2rem, 3vw, 1.8rem); color: #a0a0a0; margin-bottom: 1.5rem; animation: fadeInUp 1s ease 0.2s backwards; }
+        .description { font-size: 1.1rem; line-height: 1.8; color: #d0d0d0; margin-bottom: 2rem; animation: fadeInUp 1s ease 0.4s backwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .profile-glow {
-            position: absolute;
-            inset: -20px;
-            background: linear-gradient(135deg, #2C5F7C, #4A90A4, #6FB3D2);
-            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-            filter: blur(40px);
-            opacity: 0.6;
-            animation: pulse 4s ease-in-out infinite, morphBlob 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        @keyframes morphBlob {
-            0%, 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
-            25% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
-            50% { border-radius: 41% 59% 41% 59% / 65% 60% 40% 35%; }
-            75% { border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%; }
-        }
-
-        .profile-img {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: morphBlob 8s ease-in-out infinite;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 50%, #6FB3D2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease;
-        }
-
-        .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #a0a0a0;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0d0;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .social-btn {
-            padding: 0.8rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .social-btn:hover {
-            background: rgba(74, 144, 164, 0.2);
-            border-color: rgba(74, 144, 164, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.8s backwards;
-        }
-
-        .primary-btn {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3);
-            display: inline-block;
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(44, 95, 124, 0.5);
-        }
-
-        .secondary-btn {
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .secondary-btn:hover {
-            border-color: #4A90A4;
-            background: rgba(74, 144, 164, 0.1);
-            transform: translateY(-3px);
-        }
+        .social-links, .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .social-links { margin-bottom: 2rem; animation: fadeInUp 1s ease 0.6s backwards; }
+        .cta-buttons { animation: fadeInUp 1s ease 0.8s backwards; }
+        .social-btn { padding: 0.8rem 1.5rem; background: rgba(255, 255, 255, 0.05); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s; border: 1px solid rgba(255, 255, 255, 0.1); display: inline-flex; align-items: center; gap: 0.5rem; }
+        .social-btn:hover { background: rgba(74, 144, 164, 0.2); border-color: rgba(74, 144, 164, 0.5); transform: translateY(-2px); }
+        .primary-btn { padding: 1rem 2.5rem; background: linear-gradient(135deg, #2C5F7C 0%, #4A90A4 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); display: inline-block; }
+        .primary-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(44, 95, 124, 0.5); }
+        .secondary-btn { padding: 1rem 2.5rem; background: transparent; color: white; text-decoration: none; border-radius: 50px; font-weight: 600; border: 2px solid rgba(255, 255, 255, 0.2); transition: all 0.3s; display: inline-block; }
+        .secondary-btn:hover { border-color: #4A90A4; background: rgba(74, 144, 164, 0.1); transform: translateY(-3px); }
 
         section { padding: 6rem 5%; position: relative; }
+        .section-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; text-align: center; margin-bottom: 1rem; background: linear-gradient(135deg, #2C5F7C 0%, #6FB3D2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-subtitle { text-align: center; color: #808080; font-size: 1.1rem; margin-bottom: 4rem; }
 
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2C5F7C 0%, #6FB3D2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #808080;
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-        }
-
-        .experience-timeline {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, #4A90A4, transparent);
-        }
-
-        .experience-item {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
+        .experience-timeline { max-width: 1000px; margin: 0 auto; position: relative; }
+        .experience-timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(180deg, transparent, #4A90A4, transparent); }
+        .experience-item { display: flex; gap: 2rem; margin-bottom: 4rem; position: relative; }
         .experience-item:nth-child(even) { flex-direction: row-reverse; }
+        .experience-content { flex: 1; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px); transition: all 0.3s; }
+        .experience-content:hover { transform: translateY(-5px); border-color: rgba(74, 144, 164, 0.5); box-shadow: 0 20px 60px rgba(44, 95, 124, 0.2); }
+        .experience-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); border-radius: 50%; border: 4px solid #0a0a0a; z-index: 10; }
 
-        .experience-content {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-
-        .experience-content:hover {
-            transform: translateY(-5px);
-            border-color: rgba(74, 144, 164, 0.5);
-            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.2);
-        }
-
-        .experience-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #2C5F7C, #4A90A4);
-            border-radius: 50%;
-            border: 4px solid #0a0a0a;
-            z-index: 10;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .skill-category {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            padding: 0.5rem 1rem;
-            background: rgba(74, 144, 164, 0.15);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #d0d0d0;
-            border: 1px solid rgba(74, 144, 164, 0.2);
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .app-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #2C5F7C, #4A90A4, #6FB3D2);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .app-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(74, 144, 164, 0.5);
-            box-shadow: 0 20px 60px rgba(44, 95, 124, 0.3);
-        }
-
+        .skills-grid, .apps-grid { display: grid; gap: 2rem; max-width: 1400px; margin: 0 auto; }
+        .skills-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .apps-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .skill-category, .app-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px); transition: all 0.3s; }
+        .app-card { position: relative; overflow: hidden; }
+        .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2C5F7C, #4A90A4, #6FB3D2); transform: scaleX(0); transition: transform 0.3s; }
+        .app-card:hover { transform: translateY(-10px); border-color: rgba(74, 144, 164, 0.5); box-shadow: 0 20px 60px rgba(44, 95, 124, 0.3); }
         .app-card:hover::before { transform: scaleX(1); }
 
-        .app-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #4A90A4;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            margin-top: 1rem;
-        }
+        .skill-tags, .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tech-stack { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .skill-tag, .tech-tag { padding: 0.5rem 1rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2); }
+        .tech-tag { padding: 0.4rem 0.8rem; font-size: 0.75rem; color: #a0a0a0; border-radius: 15px; }
 
+        .app-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #4A90A4; text-decoration: none; font-weight: 600; transition: color 0.3s; margin-top: 1rem; }
         .app-link:hover { color: #6FB3D2; }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .tech-tag {
-            padding: 0.4rem 0.8rem;
-            background: rgba(74, 144, 164, 0.15);
-            border-radius: 15px;
-            font-size: 0.75rem;
-            color: #a0a0a0;
-            border: 1px solid rgba(74, 144, 164, 0.2);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 5%;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #808080;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #808080;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
+        footer { text-align: center; padding: 3rem 5%; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.1); color: #808080; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #808080; text-decoration: none; transition: color 0.3s; }
         .footer-links a:hover { color: #4A90A4; }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 1024px) {
             .hero-content { flex-direction: column-reverse; text-align: center; }
-            .hero-text { align-items: center; }
             .profile-container { width: 280px; height: 280px; }
             .hero-image { flex: 0 0 280px; }
             .social-links, .cta-buttons { justify-content: center; }
@@ -455,13 +89,11 @@
             .experience-item, .experience-item:nth-child(even) { flex-direction: row; padding-left: 50px; }
             .experience-dot { left: 20px; }
         }
-
         @media (max-width: 768px) {
             nav ul { gap: 1.5rem; font-size: 0.9rem; }
             .apps-grid, .skills-grid { grid-template-columns: 1fr; }
             section { padding: 4rem 5%; }
         }
-
         @media (max-width: 480px) {
             .primary-btn, .secondary-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
             .social-btn { padding: 0.6rem 1rem; font-size: 0.85rem; }
@@ -470,7 +102,6 @@
 </head>
 <body>
     <div class="bg-gradient"></div>
-
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -485,12 +116,8 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Shyam Mohan</h1>
-                <p class="subtitle">Android Developer & Mobile Specialist</p>
-                <p class="description">
-                    6+ years crafting high-quality Android apps with expertise in <strong>Kotlin</strong> & <strong>Java</strong>. 
-                    Specialized in Bluetooth integration, clean architecture, and building production-ready 
-                    mobile applications. Published multiple apps on Play Store with focus on performance and seamless UX.
-                </p>
+                <p class="subtitle">Android Developer</p>
+                <p class="description">6+ years crafting high-quality Android apps with expertise in <strong>Kotlin</strong> & <strong>Java</strong>. Specialized in Bluetooth integration, clean architecture, and building production-ready mobile applications. Published multiple apps on Play Store with focus on performance and seamless UX.</p>
                 
                 <div class="social-links">
                     <a href="mailto:shyammohan.ckd@gmail.com" class="social-btn">📧 Email</a>
@@ -519,6 +146,23 @@
         <h2 class="section-title fade-in">Professional Journey</h2>
         <p class="section-subtitle fade-in">6+ years building innovative mobile solutions</p>
         
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 1200px; height: 500px; opacity: 0.15; pointer-events: none;">
+            <svg viewBox="0 0 1200 600" style="width: 100%; height: 100%;">
+                <defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#4A90A4"/></pattern></defs>
+                <path d="M600,200 Q650,180 700,200 L750,220 Q780,240 800,260 L820,280 Q840,300 850,320 L860,350 Q850,380 840,400 L800,420 Q750,440 700,420 L650,400 Q620,380 600,360 L580,340 Q560,320 550,300 L540,270 Q550,240 580,220 Z" fill="url(#dots)"/>
+                <path d="M520,180 Q540,160 560,170 L580,180 Q600,190 610,210 L600,230 Q590,240 580,250 L560,260 Q540,250 530,240 L520,220 Q510,200 520,180 Z" fill="url(#dots)"/>
+                <path d="M580,250 Q600,240 620,250 L640,270 Q650,290 640,310 L620,320 Q600,310 590,300 L580,280 Q575,265 580,250 Z" fill="url(#dots)"/>
+                <circle cx="680" cy="310" r="8" fill="#2C5F7C" stroke="#4A90A4" stroke-width="2"><animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/></circle>
+                <text x="680" y="330" text-anchor="middle" fill="#4A90A4" font-size="12" font-weight="600">India</text>
+                <circle cx="640" cy="290" r="8" fill="#2C5F7C" stroke="#4A90A4" stroke-width="2"><animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="0.5s"/></circle>
+                <text x="640" y="280" text-anchor="middle" fill="#4A90A4" font-size="12" font-weight="600">Oman</text>
+                <circle cx="620" cy="285" r="8" fill="#2C5F7C" stroke="#4A90A4" stroke-width="2"><animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="1s"/></circle>
+                <text x="620" y="275" text-anchor="middle" fill="#4A90A4" font-size="12" font-weight="600">UAE</text>
+                <line x1="680" y1="310" x2="640" y2="290" stroke="#4A90A4" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"><animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/></line>
+                <line x1="640" y1="290" x2="620" y2="285" stroke="#4A90A4" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"><animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/></line>
+            </svg>
+        </div>
+        
         <div class="experience-timeline">
             <div class="experience-item fade-in">
                 <div class="experience-content">
@@ -529,7 +173,6 @@
                     <p style="color: #d0d0d0; line-height: 1.6;">Designing and developing Android applications with REST API integration and database backends for client projects.</p>
                 </div>
             </div>
-
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
@@ -539,7 +182,6 @@
                     <p style="color: #d0d0d0; line-height: 1.6;">Directed IT operations across multiple branches. Led API & software development (.NET, Kotlin, Java, Flutter), ERP, POS, server, and network management.</p>
                 </div>
             </div>
-
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
@@ -549,7 +191,6 @@
                     <p style="color: #d0d0d0; line-height: 1.6;">Delivered software and API development solutions using .NET, Kotlin, Java, Flutter, and JavaScript, including system integrations.</p>
                 </div>
             </div>
-
             <div class="experience-item fade-in">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
@@ -582,19 +223,17 @@
                     <span class="skill-tag">JUnit</span>
                 </div>
             </div>
-
             <div class="skill-category fade-in">
                 <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">📡 Connectivity</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Bluetooth SPP</span>
-                    <span class="skill-tag">Bluetooth HID</span>
-                    <span class="skill-tag">BLE/GATT</span>
-                    <span class="skill-tag">A2DP</span>
-                    <span class="skill-tag">AVRCP</span>
+                    <span class="skill-tag">Bluetooth (SPP, HID, A2DP, AVRCP)</span>
+                    <span class="skill-tag">BLE (GATT)</span>
                     <span class="skill-tag">WiFi</span>
+                    <span class="skill-tag">USB</span>
+                    <span class="skill-tag">Ethernet</span>
+                    <span class="skill-tag">Internet</span>
                 </div>
             </div>
-
             <div class="skill-category fade-in">
                 <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">💾 Databases</h3>
                 <div class="skill-tags">
@@ -606,13 +245,19 @@
                     <span class="skill-tag">MySQL</span>
                 </div>
             </div>
-
             <div class="skill-category fade-in">
                 <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">🌐 API & Tools</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Retrofit</span>
+                    <span class="skill-tag">Volley</span>
                     <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">JSON</span>
+                    <span class="skill-tag">XML</span>
+                    <span class="skill-tag">Encryption/Decryption</span>
+                    <span class="skill-tag">Data Compression</span>
                     <span class="skill-tag">Postman</span>
+                    <span class="skill-tag">Hoppscotch</span>
+                    <span class="skill-tag">Swagger</span>
                     <span class="skill-tag">Git</span>
                     <span class="skill-tag">Android Studio</span>
                     <span class="skill-tag">VS Code</span>
@@ -625,7 +270,6 @@
         <h2 class="section-title fade-in">Featured Projects</h2>
         <p class="section-subtitle fade-in">Real-world applications solving complex problems</p>
         
-        <!-- MOSBILL Showcase -->
         <div style="max-width: 1200px; margin: 0 auto 5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 3rem; backdrop-filter: blur(10px);" class="fade-in">
             <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
                 <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3);">📱</div>
@@ -637,33 +281,26 @@
                     <p style="color: #a0a0a0; font-size: 1.1rem;">Invoice Billing & Business Management Application</p>
                 </div>
             </div>
-
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
                 <div>
                     <h4 style="color: #4A90A4; font-size: 1.3rem; margin-bottom: 1rem;">📋 Overview</h4>
-                    <p style="color: #d0d0d0; line-height: 1.8; margin-bottom: 1.5rem;">
-                        MOSBILL is a comprehensive business management application designed for businessmen to handle GST billing, invoicing, purchase orders, inventory management, and business analytics. The app digitizes the entire sales process with an advanced, user-friendly interface developed after extensive market research and client consultations.
-                    </p>
-                    <p style="color: #d0d0d0; line-height: 1.8;">
-                        Features multi-user support, real-time synchronization, comprehensive reports, and Bluetooth thermal printing capabilities using Serial Port Profile (SPP) for instant invoice printing.
-                    </p>
+                    <p style="color: #d0d0d0; line-height: 1.8; margin-bottom: 1.5rem;">MOSBILL is a comprehensive business management application designed for businessmen to handle GST billing, invoicing, purchase orders, inventory management, and business analytics. The app digitizes the entire sales process with an advanced, user-friendly interface developed after extensive market research and client consultations.</p>
+                    <p style="color: #d0d0d0; line-height: 1.8;">Features multi-user support, real-time synchronization, comprehensive reports, and Bluetooth thermal printing capabilities using Serial Port Profile (SPP) for instant invoice printing.</p>
                 </div>
-
                 <div>
                     <h4 style="color: #4A90A4; font-size: 1.3rem; margin-bottom: 1rem;">🎯 Key Features</h4>
                     <ul style="color: #d0d0d0; line-height: 2; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;">✓ GST Compliant Invoicing</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Multi-user Business Management</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Real-time Inventory Tracking</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Purchase Order Management</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Business Analytics & Reports</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Bluetooth Thermal Printing (SPP)</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Cloud Sync with Firebase</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Customizable for Different Business Needs</li>
+                        <li>✓ GST Compliant Invoicing</li>
+                        <li>✓ Multi-user Business Management</li>
+                        <li>✓ Real-time Inventory Tracking</li>
+                        <li>✓ Purchase Order Management</li>
+                        <li>✓ Business Analytics & Reports</li>
+                        <li>✓ Bluetooth Thermal Printing (SPP)</li>
+                        <li>✓ Cloud Sync with Firebase</li>
+                        <li>✓ Customizable for Different Business Needs</li>
                     </ul>
                 </div>
             </div>
-
             <div style="margin-bottom: 2rem;">
                 <h4 style="color: #4A90A4; font-size: 1.3rem; margin-bottom: 1rem;">💻 Technologies Used</h4>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
@@ -677,15 +314,10 @@
                     <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Firestore</span>
                     <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">Bluetooth SPP</span>
                     <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">REST API</span>
-                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">MVVM Architecture</span>
+                    <span style="padding: 0.6rem 1.2rem; background: rgba(74, 144, 164, 0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74, 144, 164, 0.2);">MVVM</span>
                 </div>
             </div>
-
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase" target="_blank" style="padding: 1rem 2rem; background: linear-gradient(135deg, #2C5F7C, #4A90A4); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;">
-                    <span style="font-size: 1.2rem;">▶</span> View on Play Store
-                </a>
-            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase" target="_blank" style="padding: 1rem 2rem; background: linear-gradient(135deg, #2C5F7C, #4A90A4); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;"><span style="font-size: 1.2rem;">▶</span> View on Play Store</a>
         </div>
 
         <h3 style="font-size: 2rem; text-align: center; color: #d0d0d0; margin-bottom: 3rem;" class="fade-in">Other Projects</h3>
@@ -704,7 +336,6 @@
                     <span class="tech-tag">Bluetooth SPP</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🎵</div>
@@ -718,7 +349,6 @@
                     <span class="tech-tag">AVRCP</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🏷️</div>
@@ -732,7 +362,6 @@
                     <span class="tech-tag">Print Services</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💰</div>
@@ -746,7 +375,6 @@
                     <span class="tech-tag">ASP.NET</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📦</div>
@@ -760,7 +388,6 @@
                     <span class="tech-tag">Real-time</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖨️</div>
@@ -774,7 +401,6 @@
                     <span class="tech-tag">Bluetooth SPP</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖱️</div>
@@ -788,7 +414,6 @@
                     <span class="tech-tag">Touch</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💡</div>
@@ -809,7 +434,6 @@
     <section id="web-projects" style="background: rgba(255, 255, 255, 0.02); padding: 4rem 5%;">
         <h2 class="section-title fade-in" style="font-size: clamp(2rem, 4vw, 3rem);">Web Development</h2>
         <p class="section-subtitle fade-in" style="margin-bottom: 3rem;">Additional full-stack web projects</p>
-        
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
@@ -823,7 +447,6 @@
                     <span class="tech-tag">Corporate Site</span>
                 </div>
             </div>
-
             <div class="app-card fade-in">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🚀</div>
@@ -842,18 +465,13 @@
     <section id="contact">
         <h2 class="section-title fade-in">Let's Build Something Amazing</h2>
         <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-            <p style="color: #a0a0a0; font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;" class="fade-in">
-                Passionate about creating innovative mobile solutions. Whether you have a project 
-                or just want to connect, let's talk!
-            </p>
-            
+            <p style="color: #a0a0a0; font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;" class="fade-in">Passionate about creating innovative mobile solutions. Whether you have a project or just want to connect, let's talk!</p>
             <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem;" class="fade-in">
                 <a href="mailto:shyammohan.ckd@gmail.com" class="primary-btn">📧 Email Me</a>
                 <a href="https://wa.me/918714413377" target="_blank" class="secondary-btn">💬 WhatsApp</a>
                 <a href="https://linkedin.com/in/-shyam" target="_blank" class="secondary-btn">💼 LinkedIn</a>
                 <a href="https://arattai.com/shyammohan" target="_blank" class="secondary-btn">🗣️ Arattai</a>
             </div>
-
             <p style="color: #808080; font-size: 0.95rem;" class="fade-in">📍 Malappuram, Kerala, India</p>
         </div>
     </section>
@@ -881,11 +499,9 @@
                 t && t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
         }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-
         document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     </script>
 </body>

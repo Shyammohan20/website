@@ -135,6 +135,17 @@
             .social-btn { padding: 0.6rem 1rem; font-size: 0.85rem; }
             .mosbill-title-row h3 { font-size: 1.75rem; }
         }
+
+        .mosbill-actions {display: flex;gap: 1rem;margin-top: 2rem;flex-wrap: wrap;}
+        
+        @media (max-width: 768px) {
+            .mosbill-actions {flex-direction: column;gap: 0.75rem;}
+            .mosbill-actions a {width: 100%;justify-content: center;padding: 0.9rem 1.2rem;font-size: 0.95rem;}
+        }
+
+        @media (max-width: 768px) {
+            .overview.collapsed p {display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;overflow: hidden;}
+        }
     </style>
 </head>
 <body>
@@ -302,26 +313,37 @@
                 </div>
             </div>
             
-            <div class="mosbill-content collapsed" id="mosbillContent">
-                <div class="mosbill-section">
-                    <h4>📋 Overview</h4>
-                    <p style="margin-bottom: 1.5rem;">MOSBILL is a comprehensive business management application designed for businessmen to handle GST billing, invoicing, purchase orders, inventory management, and business analytics.</p>
-                    <p>The app digitizes the entire sales process with an advanced, user-friendly interface developed after extensive market research and client consultations. Features multi-user support, real-time synchronization, comprehensive reports, and Bluetooth thermal printing capabilities using Serial Port Profile (SPP) for instant invoice printing.</p>
-                </div>
-                <div class="mosbill-section">
-                    <h4>🎯 Key Features</h4>
-                    <ul>
-                        <li>✓ GST Compliant Invoicing</li>
-                        <li>✓ Multi-user Business Management</li>
-                        <li>✓ Real-time Inventory Tracking</li>
-                        <li>✓ Purchase Order Management</li>
-                        <li>✓ Business Analytics & Reports</li>
-                        <li>✓ Bluetooth Thermal Printing (SPP)</li>
-                        <li>✓ Cloud Sync with Firebase</li>
-                        <li>✓ Customizable for Different Business Needs</li>
-                    </ul>
-                </div>
+            <div class="mosbill-content">
+
+            <!-- OVERVIEW -->
+            <div class="mosbill-section overview collapsed" id="overviewSection">
+                <h4>📋 Overview</h4>
+                <p>
+                    MOSBILL is a comprehensive business management application designed for businessmen
+                    to handle GST billing, invoicing, purchase orders, inventory management, and analytics.
+                    The app digitizes the entire sales process with a user-friendly interface, multi-user
+                    support, real-time sync, reporting, and Bluetooth thermal printing.
+                </p>
             </div>
+
+            <button class="read-more-btn" id="overviewReadMore"
+                    onclick="toggleOverview()">Read More</button>
+
+            <!-- KEY FEATURES (always visible) -->
+            <div class="mosbill-section">
+                <h4>🎯 Key Features</h4>
+                <ul>
+                    <li>✓ GST Compliant Invoicing</li>
+                    <li>✓ Multi-user Business Management</li>
+                    <li>✓ Real-time Inventory Tracking</li>
+                    <li>✓ Purchase Order Management</li>
+                    <li>✓ Business Analytics & Reports</li>
+                    <li>✓ Bluetooth Thermal Printing (SPP)</li>
+                    <li>✓ Cloud Sync with Firebase</li>
+                </ul>
+            </div>
+
+        </div>
             
             <button class="read-more-btn" id="readMoreBtn" onclick="toggleMosbillContent()">Read More</button>
             
@@ -341,8 +363,17 @@
                     <span class="tech-badge">MVVM</span>
                 </div>
             </div>
-            <a href="https://mosbill.com/" target="_blank" style="padding: 1rem 2rem; background: linear-gradient(135deg, #2C5F7C, #4A90A4); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;"><span style="font-size: 1.2rem;">▶</span> Visit Website</a>
-            <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase" target="_blank" style="padding: 1rem 2rem; background: linear-gradient(135deg, #2C5F7C, #4A90A4); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;"><span style="font-size: 1.2rem;">▶</span> View on Play Store</a>
+            <div class="mosbill-actions">
+            <a href="https://mosbill.com/" target="_blank" class="primary-btn">
+                ▶ Visit Website
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase"
+            target="_blank" class="primary-btn">
+                ▶ View on Play Store
+            </a>
+        </div>
+
         </div>
 
         <h3 style="font-size: 2rem; text-align: center; color: #d0d0d0; margin-bottom: 3rem;">Other Projects</h3>
@@ -535,6 +566,19 @@
                 content.classList.add('collapsed');
                 btn.textContent = 'Read More';
             }
+        }
+    </script>
+
+    <script>
+        function toggleOverview() {
+            const section = document.getElementById('overviewSection');
+            const btn = document.getElementById('overviewReadMore');
+
+            section.classList.toggle('collapsed');
+
+            btn.textContent = section.classList.contains('collapsed')
+                ? 'Read More'
+                : 'Show Less';
         }
     </script>
 </body>

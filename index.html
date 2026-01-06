@@ -99,7 +99,6 @@
         
         .read-more-btn { display: none; padding: 0.8rem 1.5rem; background: rgba(74, 144, 164, 0.2); color: #4A90A4; border: 1px solid rgba(74, 144, 164, 0.3); border-radius: 20px; font-weight: 600; cursor: pointer; margin: 1rem 0; transition: all 0.3s; }
         .read-more-btn:hover { background: rgba(74, 144, 164, 0.3); }
-        .mosbill-content.collapsed .mosbill-section:last-child { display: none; }
 
         footer { text-align: center; padding: 3rem 5%; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.1); color: #808080; }
         .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
@@ -124,7 +123,6 @@
             /* MOSBILL Mobile Optimizations */
             .mosbill-container { padding: 2rem 1.5rem; }
             .mosbill-content { grid-template-columns: 1fr; gap: 2rem; }
-            .mosbill-content.collapsed .mosbill-section:first-child p:not(:first-child) { display: none; }
             .read-more-btn { display: block; }
             .mosbill-title-row h3 { font-size: 2rem; }
             .mosbill-icon { width: 60px; height: 60px; min-width: 60px; font-size: 2rem; }
@@ -326,8 +324,7 @@
                 </p>
             </div>
 
-            <button class="read-more-btn" id="overviewReadMore"
-                    onclick="toggleOverview()">Read More</button>
+            <button class="read-more-btn" id="overviewReadMore" onclick="toggleOverview()">Read More</button>
 
             <!-- KEY FEATURES (always visible) -->
             <div class="mosbill-section">
@@ -344,9 +341,7 @@
             </div>
 
         </div>
-            
-            <button class="read-more-btn" id="readMoreBtn" onclick="toggleMosbillContent()">Read More</button>
-            
+                    
             <div class="mosbill-tech">
                 <h4>💻 Technologies Used</h4>
                 <div class="tech-tags-row">
@@ -555,18 +550,6 @@
                 t && t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-        
-        function toggleMosbillContent() {
-            const content = document.getElementById('mosbillContent');
-            const btn = document.getElementById('readMoreBtn');
-            if (content.classList.contains('collapsed')) {
-                content.classList.remove('collapsed');
-                btn.textContent = 'Show Less';
-            } else {
-                content.classList.add('collapsed');
-                btn.textContent = 'Read More';
-            }
-        }
     </script>
 
     <script>

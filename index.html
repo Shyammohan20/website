@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shyam Mohan P - Android Developer</title>
+    <title>Shyam - Android Developer</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
@@ -78,6 +78,7 @@
         .app-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #4A90A4; text-decoration: none; font-weight: 600; transition: color 0.3s; margin-top: 1rem; }
         .app-link:hover { color: #6FB3D2; }
 
+        /* MOSBILL Section Optimizations */
         .mosbill-container { max-width: 1200px; margin: 0 auto 5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 3rem; }
         .mosbill-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
         .mosbill-icon { width: 80px; height: 80px; min-width: 80px; border-radius: 20px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 10px 30px rgba(44, 95, 124, 0.3); }
@@ -118,6 +119,8 @@
             nav ul { gap: 1.5rem; font-size: 0.9rem; }
             .apps-grid, .skills-grid { grid-template-columns: 1fr; }
             section { padding: 4rem 5%; }
+            
+            /* MOSBILL Mobile Optimizations */
             .mosbill-container { padding: 2rem 1.5rem; }
             .mosbill-content { grid-template-columns: 1fr; gap: 2rem; }
             .read-more-btn { display: block; }
@@ -136,6 +139,9 @@
         @media (max-width: 768px) {
             .mosbill-actions {flex-direction: column;gap: 0.75rem;}
             .mosbill-actions a {width: 100%;justify-content: center;padding: 0.9rem 1.2rem;font-size: 0.95rem;}
+        }
+
+        @media (max-width: 768px) {
             .overview.collapsed p {display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;overflow: hidden;}
         }
     </style>
@@ -155,12 +161,12 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Shyam Mohan P</h1>
-                <p class="subtitle">Android Developer | Mobile Application Developer</p>
-                <p class="description">Android Developer with 6+ years of experience building and publishing high-quality apps on the Google Play Store. Skilled in <strong>Kotlin</strong> & <strong>Java</strong>, with a strong focus on clean UI/UX and performance. Experienced in Bluetooth, backend integration, multithreading, and cloud services.</p>
+                <h1>Shyam Mohan</h1>
+                <p class="subtitle">Android Developer</p>
+                <p class="description">6+ years crafting high-quality Android apps with expertise in <strong>Kotlin</strong> & <strong>Java</strong>. Specialized in Bluetooth integration, clean architecture, and building production-ready mobile applications. Published multiple apps on Play Store with focus on performance and seamless UX.</p>
                 
                 <div class="social-links">
-                    <a href="/cdn-cgi/l/email-protection#c4b7acbda5a9a9abaca5aaeaa7afa084a3a9a5ada8eaa7aba9" class="social-btn">📧 Email</a>
+                    <a href="mailto:shyammohan.ckd@gmail.com" class="social-btn">📧 Email</a>
                     <a href="https://linkedin.com/in/-shyam" class="social-btn" target="_blank">💼 LinkedIn</a>
                     <a href="https://wa.me/918714413377" class="social-btn" target="_blank">💬 WhatsApp</a>
                     <a href="https://arattai.com/shyammohan" class="social-btn" target="_blank">🗣️ Arattai</a>
@@ -176,7 +182,7 @@
             <div class="hero-image">
                 <div class="profile-container">
                     <div class="profile-glow"></div>
-                    <img src="assets/img/pic.jpeg" alt="Shyam Mohan P" class="profile-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%232C5F7C%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%22120%22 font-weight=%22bold%22%3ESM%3C/text%3E%3C/svg%3E'">
+                    <img src="assets/img/pic.jpeg" alt="Shyam Mohan" class="profile-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%232C5F7C%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%22120%22 font-weight=%22bold%22%3ESM%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
         </div>
@@ -191,22 +197,27 @@
                 <div class="experience-content">
                     <div class="experience-dot"></div>
                     <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Nov 2024 – Present</p>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Mobile App Developer</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies LLP, Calicut, Kerala, India</p>
-                    <p style="color: #d0d0d0; line-height: 1.6;">Designing, developing and publishing Android & iOS applications with REST API integration and database backends for client projects.</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Android Developer</h3>
+                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies, Calicut</p>
+                    <p style="color: #d0d0d0; line-height: 1.6;">Designing and developing Android applications with REST API integration and database backends for client projects.</p>
                 </div>
             </div>
             <div class="experience-item">
                 <div class="experience-content">
                     <div class="experience-dot"></div>
-                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Apr 2022 – Nov 2024</p>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Mobile & Web App Developer</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">
-                        📍 Grand Hyper Market (Regency International LLC)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ruwi, Muscat, Oman | Nov 2022 – Nov 2024<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Al Quoz, Dubai, UAE | Apr 2022 – Nov 2022
-                    </p>
-                    <p style="color: #d0d0d0; line-height: 1.6;">Delivered software and API development solutions using .NET, C#, ASP, Kotlin, Java, and Flutter, including system integrations.</p>
+                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Nov 2022 – Nov 2024</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Assistant IT Head</h3>
+                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Grand Hyper Market, Muscat, Oman</p>
+                    <p style="color: #d0d0d0; line-height: 1.6;">Directed IT operations across multiple branches. Led API & software development (.NET, Kotlin, Java, Flutter), ERP, POS, server, and network management.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-content">
+                    <div class="experience-dot"></div>
+                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Apr 2022 – Nov 2022</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Senior Developer</h3>
+                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Grand Hyper Market, Dubai, UAE</p>
+                    <p style="color: #d0d0d0; line-height: 1.6;">Delivered software and API development solutions using .NET, Kotlin, Java, Flutter, and JavaScript, including system integrations.</p>
                 </div>
             </div>
             <div class="experience-item">
@@ -214,7 +225,7 @@
                     <div class="experience-dot"></div>
                     <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Feb 2017 – Apr 2022</p>
                     <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Mobile App Developer</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies LLP, Calicut, Kerala, India</p>
+                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies, Calicut</p>
                     <p style="color: #d0d0d0; line-height: 1.6;">Built and published mobile applications with API and database integration, ensuring scalable and reliable solutions.</p>
                 </div>
             </div>
@@ -231,18 +242,25 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Kotlin</span>
                     <span class="skill-tag">Java</span>
-                    <span class="skill-tag">RxJava</span>
-                    <span class="skill-tag">Flutter SDK</span>
-                    <span class="skill-tag">Dart</span>
+                    <span class="skill-tag">Dart/Flutter</span>
                     <span class="skill-tag">Android SDK</span>
-                    <span class="skill-tag">Bluetooth</span>
-                    <span class="skill-tag">MVVM</span>
-                    <span class="skill-tag">LiveData</span>
-                    <span class="skill-tag">Flow</span>
-                    <span class="skill-tag">Jetpack Libraries</span>
+                    <span class="skill-tag">RxJava</span>
                     <span class="skill-tag">Coroutines</span>
-                    <span class="skill-tag">Dagger</span>
-                    <span class="skill-tag">Dependency Injection</span>
+                    <span class="skill-tag">MVVM</span>
+                    <span class="skill-tag">Clean Architecture</span>
+                    <span class="skill-tag">Jetpack</span>
+                    <span class="skill-tag">JUnit</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">📡 Connectivity</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Bluetooth (SPP, HID, A2DP, AVRCP)</span>
+                    <span class="skill-tag">BLE (GATT)</span>
+                    <span class="skill-tag">WiFi</span>
+                    <span class="skill-tag">USB</span>
+                    <span class="skill-tag">Ethernet</span>
+                    <span class="skill-tag">Internet</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -251,37 +269,27 @@
                     <span class="skill-tag">SQLite</span>
                     <span class="skill-tag">Room DB</span>
                     <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">Supabase</span>
                     <span class="skill-tag">Firestore</span>
+                    <span class="skill-tag">Realtime DB</span>
                     <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">AWS</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">🌐 API & Networking</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">🌐 API & Tools</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Retrofit</span>
                     <span class="skill-tag">Volley</span>
+                    <span class="skill-tag">REST APIs</span>
                     <span class="skill-tag">JSON</span>
                     <span class="skill-tag">XML</span>
+                    <span class="skill-tag">Encryption/Decryption</span>
+                    <span class="skill-tag">Data Compression</span>
                     <span class="skill-tag">Postman</span>
                     <span class="skill-tag">Hoppscotch</span>
-                    <span class="skill-tag">PHP</span>
-                    <span class="skill-tag">.NET</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #4A90A4;">🛠️ Tools & Platforms</h3>
-                <div class="skill-tags">
+                    <span class="skill-tag">Swagger</span>
+                    <span class="skill-tag">Git</span>
                     <span class="skill-tag">Android Studio</span>
-                    <span class="skill-tag">Firebase Console</span>
-                    <span class="skill-tag">Google Play Console</span>
-                    <span class="skill-tag">Google Cloud</span>
-                    <span class="skill-tag">GitHub</span>
-                    <span class="skill-tag">GitLab</span>
                     <span class="skill-tag">VS Code</span>
-                    <span class="skill-tag">Visual Studio</span>
-                    <span class="skill-tag">FCM</span>
                 </div>
             </div>
         </div>
@@ -299,33 +307,40 @@
                         <h3>MOSBILL</h3>
                         <span class="flagship-badge">Flagship Project</span>
                     </div>
-                    <p class="mosbill-subtitle">Multi-user Billing System with GST Invoicing</p>
+                    <p class="mosbill-subtitle">Invoice Billing & Business Management Application</p>
                 </div>
             </div>
             
             <div class="mosbill-content">
-                <div class="mosbill-section overview collapsed" id="overviewSection">
-                    <h4>📋 Overview</h4>
-                    <p>
-                        Multi-user billing system in Android with GST invoicing, comprehensive reports, and REST APIs integration. Features Bluetooth SPP thermal printing for seamless invoice generation. Complete business management solution with real-time sync and cloud storage.
-                    </p>
-                </div>
 
-                <div class="mosbill-section">
-                    <h4>🎯 Key Features</h4>
-                    <ul>
-                        <li>✓ GST Compliant Invoicing</li>
-                        <li>✓ Multi-user Business Management</li>
-                        <li>✓ Comprehensive Reports & Analytics</li>
-                        <li>✓ REST API Integration</li>
-                        <li>✓ Bluetooth SPP Thermal Printing</li>
-                        <li>✓ Cloud Sync with Firebase</li>
-                        <li>✓ Real-time Inventory Tracking</li>
-                    </ul>
-                </div>
+            <!-- OVERVIEW -->
+            <div class="mosbill-section overview collapsed" id="overviewSection">
+                <h4>📋 Overview</h4>
+                <p>
+                    MOSBILL is a comprehensive business management application designed for businessmen
+                    to handle GST billing, invoicing, purchase orders, inventory management, and analytics.
+                    The app digitizes the entire sales process with a user-friendly interface, multi-user
+                    support, real-time sync, reporting, and Bluetooth thermal printing.
+                </p>
             </div>
 
             <button class="read-more-btn" id="overviewReadMore" onclick="toggleOverview()">Read More</button>
+
+            <!-- KEY FEATURES (always visible) -->
+            <div class="mosbill-section">
+                <h4>🎯 Key Features</h4>
+                <ul>
+                    <li>✓ GST Compliant Invoicing</li>
+                    <li>✓ Multi-user Business Management</li>
+                    <li>✓ Real-time Inventory Tracking</li>
+                    <li>✓ Purchase Order Management</li>
+                    <li>✓ Business Analytics & Reports</li>
+                    <li>✓ Bluetooth Thermal Printing (SPP)</li>
+                    <li>✓ Cloud Sync with Firebase</li>
+                </ul>
+            </div>
+
+        </div>
                     
             <div class="mosbill-tech">
                 <h4>💻 Technologies Used</h4>
@@ -334,17 +349,26 @@
                     <span class="tech-badge">Kotlin</span>
                     <span class="tech-badge">XML</span>
                     <span class="tech-badge">JSON</span>
-                    <span class="tech-badge">REST API</span>
+                    <span class="tech-badge">Volley</span>
+                    <span class="tech-badge">Room DB</span>
                     <span class="tech-badge">Firebase</span>
+                    <span class="tech-badge">Firestore</span>
                     <span class="tech-badge">Bluetooth SPP</span>
+                    <span class="tech-badge">REST API</span>
                     <span class="tech-badge">MVVM</span>
                 </div>
             </div>
-
             <div class="mosbill-actions">
-                <a href="https://mosbill.com/" target="_blank" class="primary-btn">▶ Visit Website</a>
-                <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase" target="_blank" class="primary-btn">▶ View on Play Store</a>
-            </div>
+            <a href="https://mosbill.com/" target="_blank" class="primary-btn">
+                ▶ Visit Website
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.mosbill_firebase"
+            target="_blank" class="primary-btn">
+                ▶ View on Play Store
+            </a>
+        </div>
+
         </div>
 
         <h3 style="font-size: 2rem; text-align: center; color: #d0d0d0; margin-bottom: 3rem;">Other Projects</h3>
@@ -355,106 +379,99 @@
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🔥</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2025</span>
                 </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">FireFly ERP</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Order and customer management Android app developed for Firefly ERP system with Bluetooth SPP invoice printing.</p>
+                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">TGZ ERP</h3>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Order and customer management app with Bluetooth SPP invoice printing.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Kotlin</span>
                     <span class="tech-tag">ERP</span>
                     <span class="tech-tag">Bluetooth SPP</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🎵</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2024</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">GRAND MEDIA PLAYER</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Simple audio player using Bluetooth A2DP & AVRCP for playing, pausing, skipping, and switching between multiple audio devices during electronics department demos.</p>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Audio player using Bluetooth A2DP & AVRCP for demo switching across multiple devices.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">A2DP</span>
                     <span class="tech-tag">AVRCP</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🏷️</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2023</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">LABEL PRINTER</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Android application for printing different types of product labels by connecting multiple Label printers within a local WiFi network.</p>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Print product labels by connecting multiple printers via local WiFi network.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Kotlin</span>
                     <span class="tech-tag">WiFi</span>
                     <span class="tech-tag">Print Services</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💰</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2023</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">PRICE CHECKER</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Android barcode scanner integrated with ASP.NET APIs for real-time price lookup for customers and staff.</p>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Barcode scanner with ASP.NET API integration for real-time price lookup.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">Barcode</span>
                     <span class="tech-tag">ASP.NET</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📦</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2022</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">LIVE STOCK TAKING</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Android app with ASP.NET backend for real-time stock inventory monitoring for auditing purposes.</p>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Real-time stock inventory monitoring with ASP.NET backend integration.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Kotlin</span>
                     <span class="tech-tag">ASP.NET</span>
                     <span class="tech-tag">Real-time</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖨️</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2021</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Bluetooth Thermal Printing</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Converts ERP invoices to PDF and prints via Bluetooth SPP thermal printer by sending PDF pages as images over Bluetooth Socket.</p>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Converts ERP invoices to PDF and prints via Bluetooth SPP thermal printer.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">PDF</span>
                     <span class="tech-tag">Bluetooth SPP</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🖱️</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2017</span>
                 </div>
                 <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">ANDROID REMOTE MOUSE</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Control PC mouse remotely via Bluetooth HID with Android screen as the trackpad.</p>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">Control PC mouse remotely via Bluetooth HID with Android screen as trackpad.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">Bluetooth HID</span>
                     <span class="tech-tag">Touch</span>
                 </div>
             </div>
-
             <div class="app-card">
                 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
                     <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">💡</div>
                     <span style="color: #4A90A4; font-weight: 600; font-size: 0.9rem;">2016</span>
                 </div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">SMART SWITCH - IoT</h3>
-                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">BLE-based app connecting to smart bulbs, controlling them by writing to GATT characteristics. Sends byte commands for ON/OFF, brightness, and RGB color control.</p>
+                <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">SMART SWITCH</h3>
+                <p style="color: #a0a0a0; line-height: 1.7; margin-bottom: 1rem;">BLE-based smart bulb controller using GATT for ON/OFF, brightness, and RGB color control.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Java</span>
                     <span class="tech-tag">BLE</span>
@@ -501,7 +518,7 @@
         <div style="text-align: center; max-width: 700px; margin: 0 auto;">
             <p style="color: #a0a0a0; font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;">Passionate about creating innovative mobile solutions. Whether you have a project or just want to connect, let's talk!</p>
             <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem;">
-                <a href="/cdn-cgi/l/email-protection#14677c6d7579797b7c757a3a777f70547379757d783a777b79" class="primary-btn">📧 Email Me</a>
+                <a href="mailto:shyammohan.ckd@gmail.com" class="primary-btn">📧 Email Me</a>
                 <a href="https://wa.me/918714413377" target="_blank" class="secondary-btn">💬 WhatsApp</a>
                 <a href="https://linkedin.com/in/-shyam" target="_blank" class="secondary-btn">💼 LinkedIn</a>
                 <a href="https://arattai.com/shyammohan" target="_blank" class="secondary-btn">🗣️ Arattai</a>
@@ -513,19 +530,19 @@
     <footer>
         <div style="max-width: 1400px; margin: 0 auto;">
             <div class="footer-links">
-                <a href="/cdn-cgi/l/email-protection#b6c5decfd7dbdbd9ded7d898d5ddd2f6d1dbd7dfda98d5d9db">Email</a>
+                <a href="mailto:shyammohan.ckd@gmail.com">Email</a>
                 <a href="https://linkedin.com/in/-shyam" target="_blank">LinkedIn</a>
                 <a href="https://wa.me/918714413377" target="_blank">WhatsApp</a>
                 <a href="https://arattai.com/shyammohan" target="_blank">Arattai</a>
                 <a href="tel:+918714413377">Phone</a>
                 <a href="https://docs.google.com/document/d/18xnqMv7kFvRA6wkP0MkpofKsaH8bpmsnRwkmYWauCxo/export?format=pdf" target="_blank">Resume</a>
             </div>
-            <p>&copy; 2024 Shyam Mohan P. Android Developer | Mobile Application Developer</p>
+            <p>&copy; 2024 Shyam Mohan. Android Developer | Mobile Specialist</p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with passion for mobile innovation</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
@@ -538,3 +555,14 @@
     <script>
         function toggleOverview() {
             const section = document.getElementById('overviewSection');
+            const btn = document.getElementById('overviewReadMore');
+
+            section.classList.toggle('collapsed');
+
+            btn.textContent = section.classList.contains('collapsed')
+                ? 'Read More'
+                : 'Show Less';
+        }
+    </script>
+</body>
+</html>

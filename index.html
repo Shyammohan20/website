@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shyam - Android Developer</title>
+    <title>Shyam - Mobile App Developer</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
@@ -53,13 +53,17 @@
         .section-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; text-align: center; margin-bottom: 1rem; background: linear-gradient(135deg, #2C5F7C 0%, #6FB3D2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .section-subtitle { text-align: center; color: #808080; font-size: 1.1rem; margin-bottom: 4rem; }
 
-        .experience-timeline { max-width: 1000px; margin: 0 auto; position: relative; }
-        .experience-timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(180deg, transparent, #4A90A4, transparent); }
-        .experience-item { display: flex; gap: 2rem; margin-bottom: 4rem; position: relative; }
-        .experience-item:nth-child(even) { flex-direction: row-reverse; }
-        .experience-content { flex: 1; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 2rem; transition: all 0.3s; }
-        .experience-content:hover { transform: translateY(-5px); border-color: rgba(74, 144, 164, 0.5); box-shadow: 0 20px 60px rgba(44, 95, 124, 0.2); }
-        .experience-dot { position: absolute; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: linear-gradient(135deg, #2C5F7C, #4A90A4); border-radius: 50%; border: 4px solid #0a0a0a; z-index: 10; }
+        .experience-timeline { max-width: 1000px; margin: 0 auto; }
+        .experience-item { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; transition: all 0.3s; align-items: flex-start; }
+        .experience-item:last-child { margin-bottom: 0; }
+        .experience-item:hover { transform: translateY(-5px); border-color: rgba(74, 144, 164, 0.5); box-shadow: 0 20px 60px rgba(44, 95, 124, 0.2); }
+        .experience-date { min-width: 150px; text-align: center; background: rgba(74, 144, 164, 0.1); border-radius: 15px; padding: 1rem 0.75rem; border: 1px solid rgba(74, 144, 164, 0.2); }
+        .experience-date .period { color: #4A90A4; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem; display: block; }
+        .experience-date .year { color: #6FB3D2; font-size: 1.1rem; font-weight: 700; }
+        .experience-content { flex: 1; }
+        .experience-content h3 { font-size: 1.5rem; margin-bottom: 0.25rem; color: #fff; }
+        .experience-content .location { color: #c0c0c0; margin-bottom: 0.75rem; display: block; font-size: 1.05rem; font-weight: 500; }
+        .experience-content .description { color: #d0d0d0; line-height: 1.6; margin: 0; }
 
         .skills-grid, .apps-grid { display: grid; gap: 2rem; max-width: 1400px; margin: 0 auto; }
         .skills-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
@@ -110,9 +114,8 @@
             .profile-container { width: 280px; height: 280px; }
             .hero-image { flex: 0 0 280px; }
             .social-links, .cta-buttons { justify-content: center; }
-            .experience-timeline::before { left: 20px; }
-            .experience-item, .experience-item:nth-child(even) { flex-direction: row; padding-left: 50px; }
-            .experience-dot { left: 20px; }
+            .experience-item { flex-direction: column; }
+            .experience-date { min-width: 100%; text-align: left; }
         }
         
         @media (max-width: 768px) {
@@ -162,7 +165,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Shyam Mohan</h1>
-                <p class="subtitle">Android Developer</p>
+                <p class="subtitle">Mobile App Developer</p>
                 <p class="description">6+ years crafting high-quality Android apps with expertise in <strong>Kotlin</strong> & <strong>Java</strong>. Specialized in Bluetooth integration, clean architecture, and building production-ready mobile applications. Published multiple apps on Play Store with focus on performance and seamless UX.</p>
                 
                 <div class="social-links">
@@ -194,39 +197,47 @@
         
         <div class="experience-timeline">
             <div class="experience-item">
+                <div class="experience-date">
+                    <span class="period">Nov 2024 – Present</span>
+                    <span class="year">2024</span>
+                </div>
                 <div class="experience-content">
-                    <div class="experience-dot"></div>
-                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Nov 2024 – Present</p>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Android Developer</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies, Calicut</p>
-                    <p style="color: #d0d0d0; line-height: 1.6;">Designing and developing Android applications with REST API integration and database backends for client projects.</p>
+                    <h3>Mobile App Developer</h3>
+                    <span class="location">📍 Mentegoz Technologies, Calicut</span>
+                    <p class="description">Designing and developing Android applications with REST API integration and database backends for client projects.</p>
                 </div>
             </div>
             <div class="experience-item">
+                <div class="experience-date">
+                    <span class="period">Nov 2022 – Nov 2024</span>
+                    <span class="year">2022-2024</span>
+                </div>
                 <div class="experience-content">
-                    <div class="experience-dot"></div>
-                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Nov 2022 – Nov 2024</p>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Assistant IT Head</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Grand Hyper Market, Muscat, Oman</p>
-                    <p style="color: #d0d0d0; line-height: 1.6;">Directed IT operations across multiple branches. Led API & software development (.NET, Kotlin, Java, Flutter), ERP, POS, server, and network management.</p>
+                    <h3>Mobile & Web App Developer</h3>
+                    <span class="location">📍 Grand Hyper Market, Muscat, Oman</span>
+                    <p class="description">Delivered software and API development solutions using .NET, ASP, C#, Kotlin, Java and Flutter, including system integrations.</p>
                 </div>
             </div>
             <div class="experience-item">
+                <div class="experience-date">
+                    <span class="period">Apr 2022 – Nov 2022</span>
+                    <span class="year">2022</span>
+                </div>
                 <div class="experience-content">
-                    <div class="experience-dot"></div>
-                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Apr 2022 – Nov 2022</p>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Senior Developer</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Grand Hyper Market, Dubai, UAE</p>
-                    <p style="color: #d0d0d0; line-height: 1.6;">Delivered software and API development solutions using .NET, Kotlin, Java, Flutter, and JavaScript, including system integrations.</p>
+                    <h3>Mobile & Web App Developer</h3>
+                    <span class="location">📍 Grand Hyper Market, Dubai, UAE</span>
+                    <p class="description">Delivered software and API development solutions using .NET, ASP, C#, Kotlin, Java and Flutter, including system integrations.</p>
                 </div>
             </div>
             <div class="experience-item">
+                <div class="experience-date">
+                    <span class="period">Feb 2017 – Apr 2022</span>
+                    <span class="year">2017-2022</span>
+                </div>
                 <div class="experience-content">
-                    <div class="experience-dot"></div>
-                    <p style="color: #4A90A4; font-weight: 600; margin-bottom: 0.5rem;">Feb 2017 – Apr 2022</p>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Mobile App Developer</h3>
-                    <p style="color: #a0a0a0; margin-bottom: 1rem;">📍 Mentegoz Technologies, Calicut</p>
-                    <p style="color: #d0d0d0; line-height: 1.6;">Built and published mobile applications with API and database integration, ensuring scalable and reliable solutions.</p>
+                    <h3>Mobile App Developer</h3>
+                    <span class="location">📍 Mentegoz Technologies, Calicut</span>
+                    <p class="description">Built and published mobile applications with API and database integration, ensuring scalable and reliable solutions.</p>
                 </div>
             </div>
         </div>
@@ -537,7 +548,7 @@
                 <a href="tel:+918714413377">Phone</a>
                 <a href="https://docs.google.com/document/d/18xnqMv7kFvRA6wkP0MkpofKsaH8bpmsnRwkmYWauCxo/export?format=pdf" target="_blank">Resume</a>
             </div>
-            <p>&copy; 2024 Shyam Mohan. Android Developer | Mobile Specialist</p>
+            <p>&copy; 2024 Shyam Mohan. Mobile App Developer | Mobile Specialist</p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with passion for mobile innovation</p>
         </div>
     </footer>

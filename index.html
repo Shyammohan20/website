@@ -56,7 +56,9 @@
         .experience-content .location { color: #c0c0c0; margin-bottom: 0.75rem; display: block; font-size: 1.05rem; font-weight: 500; }
         .experience-content .description { color: #d0d0d0; line-height: 1.6; margin: 0; }
 
-        .skills-grid { display: grid; gap: 2rem; max-width: 1400px; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .skills-grid { display: grid; gap: 2rem; max-width: 1400px; margin: 0 auto; grid-template-columns: repeat(4, 1fr); }
+        .skill-full { grid-column: 1 / -1; }
+        .apps-grid-3 { grid-template-columns: repeat(3, 1fr); }
         .skill-category { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .skill-tag { padding: 0.5rem 1rem; background: rgba(74,144,164,0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74,144,164,0.2); }
@@ -151,7 +153,7 @@
         }
         @media (max-width: 768px) {
             nav ul { gap: 1.5rem; font-size: 0.9rem; }
-            .apps-grid, .skills-grid { grid-template-columns: 1fr; }
+            .apps-grid, .apps-grid-3, .skills-grid { grid-template-columns: 1fr; }
             section { padding: 4rem 5%; }
             .mosbill-container { padding: 2rem 1.5rem; }
             .mosbill-content { grid-template-columns: 1fr; gap: 2rem; }
@@ -248,17 +250,10 @@
                 </div>
             </div>
             <div class="experience-item">
-                <div class="experience-date"><span class="period">Nov 2022 &ndash; Nov 2024</span><span class="year">2022-2024</span></div>
+                <div class="experience-date"><span class="period">Apr 2022 &ndash; Nov 2024</span><span class="year">2022-2024</span></div>
                 <div class="experience-content">
                     <h3>Mobile &amp; Web App Developer</h3>
-                    <span class="location">&#128205; Grand Hyper Market, Muscat, Oman</span>
-                    <p class="description">Delivered software and API development solutions using .NET, ASP, C#, Kotlin, Java and Flutter, including system integrations.</p>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="experience-date"><span class="period">Apr 2022 &ndash; Nov 2022</span><span class="year">2022</span></div>
-                <div class="experience-content">
-                    <h3>Mobile &amp; Web App Developer</h3>
+                    <span class="location" style="margin-bottom:0.2rem;">&#128205; Grand Hyper Market, Muscat, Oman</span>
                     <span class="location">&#128205; Grand Hyper Market, Dubai, UAE</span>
                     <p class="description">Delivered software and API development solutions using .NET, ASP, C#, Kotlin, Java and Flutter, including system integrations.</p>
                 </div>
@@ -278,10 +273,10 @@
         <h2 class="section-title">Technical Expertise</h2>
         <p class="section-subtitle">Comprehensive skill set for mobile development</p>
         <div class="skills-grid">
-            <div class="skill-category">
+            <div class="skill-category skill-full">
                 <h3 style="font-size:1.3rem;margin-bottom:1.5rem;color:#4A90A4;">&#127919; Multiplatform</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Kotlin Multiplatform (KMP)</span><span class="skill-tag">Compose Multiplatform</span><span class="skill-tag">Ktor</span><span class="skill-tag">SQLDelight</span><span class="skill-tag">Room (KMP)</span><span class="skill-tag">Koin</span>
+                    <span class="skill-tag">Kotlin Multiplatform (KMP)</span><span class="skill-tag">Compose Multiplatform</span><span class="skill-tag">Ktor</span><span class="skill-tag">Koin</span><span class="skill-tag">Room DB</span><span class="skill-tag">SQLDelight</span><span class="skill-tag">Kotlinx Coroutines</span><span class="skill-tag">Kotlinx Serialization</span><span class="skill-tag">Kotlinx Datetime</span><span class="skill-tag">Multiplatform Settings</span><span class="skill-tag">DataStore</span><span class="skill-tag">expect/actual</span><span class="skill-tag">Gradle KTS</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -514,14 +509,14 @@
 
         </div>
 
-        <!-- FM Radio Apps -->
+        <!-- Flutter Apps -->
         <div style="margin-top:5rem;">
             <div style="text-align:center;margin-bottom:3rem;">
                 <span class="fm-section-label">&#128251; GCC Broadcasting</span>
-                <h3 style="font-size:2rem;color:#d0d0d0;margin-top:0.75rem;">FM Radio Apps</h3>
+                <h3 style="font-size:2rem;color:#d0d0d0;margin-top:0.75rem;">Flutter Apps</h3>
                 <p style="color:#808080;margin-top:0.5rem;">Online FM radio streaming apps for GCC countries &#8212; built with Flutter for Android &amp; iOS</p>
             </div>
-            <div class="apps-grid">
+            <div class="apps-grid apps-grid-3">
 
                 <div class="app-card">
                     <div class="card-icon-row">

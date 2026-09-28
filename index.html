@@ -63,7 +63,8 @@
         .skill-tag { padding: 0.5rem 1rem; background: rgba(74,144,164,0.15); border-radius: 20px; font-size: 0.9rem; color: #d0d0d0; border: 1px solid rgba(74,144,164,0.2); }
 
         .apps-grid { display: grid; gap: 2rem; max-width: 1400px; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .apps-grid.apps-grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .apps-grid.apps-grid-3 { display: flex; flex-wrap: wrap; justify-content: center; }
+        .apps-grid.apps-grid-3 > .app-card { flex: 0 0 calc((100% - 4rem) / 3); }
         .app-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 1.75rem; transition: all 0.3s; position: relative; overflow: hidden; }
         .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,#2C5F7C,#4A90A4,#6FB3D2); transform: scaleX(0); transition: transform 0.3s; }
         .app-card:hover { transform: translateY(-6px); border-color: rgba(74,144,164,0.5); box-shadow: 0 20px 60px rgba(44,95,124,0.25); }
@@ -153,7 +154,8 @@
         }
         @media (max-width: 768px) {
             nav ul { gap: 1.5rem; font-size: 0.9rem; }
-            .apps-grid, .apps-grid.apps-grid-3, .skills-grid { grid-template-columns: 1fr; }
+            .apps-grid, .skills-grid { grid-template-columns: 1fr; }
+            .apps-grid.apps-grid-3 > .app-card { flex-basis: 100%; }
             section { padding: 4rem 5%; }
             .mosbill-container { padding: 2rem 1.5rem; }
             .mosbill-content { grid-template-columns: 1fr; gap: 2rem; }
